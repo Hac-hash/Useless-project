@@ -1,17 +1,16 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+# Mouse Maze Game 🐭
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: Hackaholics
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Member 1: Agna Jo Augustin - Albertian Institute of Science and Technology
+- Member 2: Aleena Antony - Albertian Institute of Science and Technology
 
 ### Project Description
 [2-3 lines about what your project does]
