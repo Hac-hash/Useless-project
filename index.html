@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Maze Game</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      color: white;
+      background-color: #00c6ff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #007acc;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Mouse Maze Game</h1>
+  <p>
+    Guide the blue square to the red exit without touching any walls.
+    <br>Use your mouse to move, but be careful — hit a wall three times and the maze resets!
+  </p>
+  <button onclick="startGame()">Start Game</button>
+
+  <footer>Created by Hackaholics © 2025</footer>
+
+  <script>
+    function startGame() {
+      window.location.href = "game.html";
+    }
+  </script>
+
+</body>
+</html>

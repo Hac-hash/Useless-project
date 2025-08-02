@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Maze Game</title>
+  <style>
+    body {
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    canvas {
+      margin-top: 20px;
+      border: 2px solid white;
+      cursor: none;
+    }
+
+    #message {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 25px 35px;
+      border-radius: 12px;
+      font-size: 20px;
+      display: none;
+      z-index: 10;
+      text-align: center;
+    }
+
+    #restartBtn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+    }
+
+    #restartBtn:hover {
+      background-color: #0056b3;
+    }
+
+    #exitBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 15px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #ff4757, #c44569);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    #exitBtn:hover {
+      background: linear-gradient(135deg, #ff3742, #b73e56);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 71, 87, 0.6);
+    }
+
+    #exitBtn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 10px rgba(255, 71, 87, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <button id="exitBtn" onclick="exitGame()">✕ EXIT</button>
+  <h1>Mouse Maze Game</h1>
+  <canvas id="mazeCanvas" width="500" height="500"></canvas>
+  <div id="message">
+    <div id="messageText"></div>
+    <button id="restartBtn" onclick="restartAfterWall()">Restart</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("mazeCanvas");
+    const ctx = canvas.getContext("2d");
+    const gridSize = 25;
+    const cellSize = canvas.width / gridSize;
+
+    let maze = [];
+    let player = { x: 0, y: 0 };
+    let collisionCount = 0;
+    const maxCollisions = 3;
+    let isFrozen = false;
+    let waitingForMouseInStart = false;
+
+    const messageBox = document.getElementById("message");
+    const messageText = document.getElementById("messageText");
+    const restartBtn = document.getElementById("restartBtn");
+
+    function showPopupMessage(msg) {
+      messageText.innerText = msg;
+      messageBox.style.display = "block";
+      isFrozen = true;
+    }
+
+    function hidePopupMessage() {
+      messageBox.style.display = "none";
+    }
+
+    function generateMaze() {
+      maze = Array.from({ length: gridSize }, () =>
+        Array.from({ length: gridSize }, () => (Math.random() < 0.3 ? 1 : 0))
+      );
+      maze[0][0] = 0;
+      maze[gridSize - 1][gridSize - 1] = 0;
+    }
+
+    function drawMaze() {
+      for (let y = 0; y < gridSize; y++) {
+        for (let x = 0; x < gridSize; x++) {
+          ctx.fillStyle = maze[y][x] === 1 ? "black" : "white";
+          ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+        }
+      }
+
+      ctx.fillStyle = "green";
+      ctx.fillRect(0, 0, cellSize, cellSize);
+
+      ctx.fillStyle = "red";
+      ctx.fillRect((gridSize - 1) * cellSize, (gridSize - 1) * cellSize, cellSize, cellSize);
+    }
+
+    function drawPlayer() {
+      ctx.fillStyle = "blue";
+      ctx.fillRect(player.x * cellSize, player.y * cellSize, cellSize, cellSize);
+    }
+
+    function redraw() {
+      drawMaze();
+      drawPlayer();
+    }
+
+    function resetPlayer() {
+      player = { x: 0, y: 0 };
+    }
+
+    function restartAfterWall() {
+      hidePopupMessage();
+      resetPlayer();
+      redraw();
+
+      // Now wait for user to move pointer into starting cell
+      waitingForMouseInStart = true;
+      isFrozen = true;
+    }
+
+    function handleWin() {
+      isFrozen = true;
+      messageText.innerText = "🎉 You reached the end!";
+      restartBtn.style.display = "none";
+      messageBox.style.display = "block";
+
+      setTimeout(() => {
+        generateMaze();
+        resetPlayer();
+        collisionCount = 0;
+        restartBtn.style.display = "inline-block";
+        hidePopupMessage();
+        isFrozen = false;
+        redraw();
+      }, 2000);
+    }
+
+    function handleCollision() {
+      if (isFrozen) return;
+
+      collisionCount++;
+      showPopupMessage("😵 You hit a wall! Click restart to try again.");
+
+      if (collisionCount >= maxCollisions) {
+        messageText.innerText += "\n🚫 Too many hits!";
+        collisionCount = 0;
+      }
+    }
+
+    // EXIT FUNCTION
+    function exitGame() {
+      if (confirm("Are you sure you want to exit the game?")) {
+        window.location.href = "index.html";
+      }
+    }
+
+    canvas.addEventListener("mousemove", (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = Math.floor((e.clientX - rect.left) / cellSize);
+      const y = Math.floor((e.clientY - rect.top) / cellSize);
+
+      if (waitingForMouseInStart) {
+        if (x === 0 && y === 0) {
+          isFrozen = false;
+          waitingForMouseInStart = false;
+          // Allow player to begin only when they move into start cell
+          return;
+        }
+        return; // Do not allow game to resume unless pointer is in start cell
+      }
+
+      if (isFrozen) return;
+
+      if (x < 0 || y < 0 || x >= gridSize || y >= gridSize) return;
+      if (x === player.x && y === player.y) return;
+
+      if (maze[y][x] === 1) {
+        handleCollision();
+        return;
+      }
+
+      player = { x, y };
+      redraw();
+
+      if (x === gridSize - 1 && y === gridSize - 1) {
+        handleWin();
+      }
+    });
+
+    // Start the game
+    generateMaze();
+    resetPlayer();
+    redraw();
+  </script>
+</body>
+</html>
