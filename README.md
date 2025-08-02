@@ -1,6 +1,3 @@
-
-
-
 # Mouse Maze Game 🐭
 
 
@@ -29,10 +26,10 @@ A fun, reflex-testing browser game where your mouse becomes the player! Navigate
 # Code Editor
 – To write and edit the HTML, CSS, and JavaScript files (Visual Studio Code).
 
-# Developer Tools (Built-in Browser Dev Tools)
+ Developer Tools (Built-in Browser Dev Tools)
 – For debugging and inspecting the canvas, mouse events, and layout.
 
-# HTML/CSS/JavaScript
+ HTML/CSS/JavaScript
 – Core languages used to build the entire game interface, visuals, and logic.
 
 
@@ -59,46 +56,40 @@ For Software:
 
 # Screenshots 
 
-<img width="1920" height="1020" alt="Screenshot 2025-08-02 155950" src="https://github.com/user-attachments/assets/72573ab0-e59b-427c-a2bc-9d1a19fd2569" />
+# <img width="1920" height="1020" alt="Screenshot 2025-08-02 155950" src="https://github.com/user-attachments/assets/72573ab0-e59b-427c-a2bc-9d1a19fd2569" />
 
 Figure 1: Welcome Screen of the Mouse Maze Game
 This is the front page of the game where the player is introduced to the objective. It features a clean UI with a game title, brief instructions, and a prominent "Start Game" button. Once clicked, it transitions into the actual maze gameplay.
 
+# <img width="1920" height="1020" alt="Screenshot 2025-08-02 160012" src="https://github.com/user-attachments/assets/819a9d5e-cb33-45c8-9e32-56de54b158e9" />
+
 Figure 2: Gameplay Interface of the Mouse Maze Game
 This is the main game screen where the player navigates from the blue square (start) to the red square (goal) without touching any black walls. If the pointer touches a wall, a restart prompt is triggered. The sleek dark background and clear layout ensure focus on the maze. The top-right EXIT button allows players to return to the home screen.
 
+# <img width="1920" height="1020" alt="Screenshot 2025-08-02 160034" src="https://github.com/user-attachments/assets/79388bbe-d7f7-47cd-b148-7937c222c8e9" />
 
 Figure 3: Wall Collision and Restart Popup
 If the player’s mouse touches a wall, a friendly (yet firm) popup message appears saying: “You hit a wall! Click restart to try again.”
 The game pauses until the player clicks the Restart button, which sends the pointer back to the start. This enforces discipline in navigation and adds a fun penalty mechanic to the gameplay.
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+# <img width="1423" height="732" alt="image" src="https://github.com/user-attachments/assets/5592acd4-b49a-4d6e-9916-e0ae42d33e95" />
+Figure 4: This shows the winning popup that appears when the player reaches the end of the maze. 
 
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+https://drive.google.com/file/d/1uJR2NfLoEpfdsmp2gBRPl9t2VlhvGcem/view?usp=drive_link
+
+This video demonstrates the interactive gameplay of our Mouse Maze Game, a fun and slightly annoying challenge where your mouse becomes your worst enemy. The objective is simple: reach the red exit square without touching any walls.
+
+   The video walks through:
+     The welcome screen and entry to the game
+     Real-time mouse movement through a randomly generated maze
+     What happens when the player hits a wall — including a popup warning and a forced restart
+     The reset mechanics that ensure the pointer starts back at the green square
+     A successful path to the goal
+
+Perfect for testing your patience and precision. No one asked for this… but we built it anyway.
 
 
 
