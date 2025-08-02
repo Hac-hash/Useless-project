@@ -1,4 +1,4 @@
-<img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
+
 
 
 # Mouse Maze Game 🐭
@@ -13,47 +13,64 @@
 - Member 2: Aleena Antony - Albertian Institute of Science and Technology
 
 ### Project Description
-[2-3 lines about what your project does]
+A fun, reflex-testing browser game where your mouse becomes the player! Navigate through randomly generated mazes, avoid the walls, and race to the red square — but blink (or crash) three times, and it’s game over. Simple, addictive, and just frustrating enough to keep you coming back!
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+“Too many people are reaching their destination without hitting invisible walls with their mouse.”
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+“We built a game where your mouse is trapped in a maze, and the walls punish your overconfidence. Hit one? Restart. Hit three? Rebuild the universe (well, the maze).”
 
 ## Technical Details
 ### Technologies/Components Used
-For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+# Web Browser
+– To run and test the game (Chrome)
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+# Code Editor
+– To write and edit the HTML, CSS, and JavaScript files (Visual Studio Code).
+
+# Developer Tools (Built-in Browser Dev Tools)
+– For debugging and inspecting the canvas, mouse events, and layout.
+
+# HTML/CSS/JavaScript
+– Core languages used to build the entire game interface, visuals, and logic.
+
 
 ### Implementation
-For Software:
+This project is built entirely using HTML, CSS, and JavaScript. It runs directly in the browser and does not require any external libraries or frameworks.
+
 # Installation
-[commands]
+No installation is required if you're using a browser and a code editor.
 
 # Run
-[commands]
+You can run the game in two simple ways:
+
+Option 1 – From File System
+
+ Just double-click the HTML file- It will open in your default browser
+ 
+Option 2 – Using Live Server in VS Code
+
+ Right-click the HTML file → "Open with Live Server"
+
 
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+# Screenshots 
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+<img width="1920" height="1020" alt="Screenshot 2025-08-02 155950" src="https://github.com/user-attachments/assets/72573ab0-e59b-427c-a2bc-9d1a19fd2569" />
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+Figure 1: Welcome Screen of the Mouse Maze Game
+This is the front page of the game where the player is introduced to the objective. It features a clean UI with a game title, brief instructions, and a prominent "Start Game" button. Once clicked, it transitions into the actual maze gameplay.
+
+Figure 2: Gameplay Interface of the Mouse Maze Game
+This is the main game screen where the player navigates from the blue square (start) to the red square (goal) without touching any black walls. If the pointer touches a wall, a restart prompt is triggered. The sleek dark background and clear layout ensure focus on the maze. The top-right EXIT button allows players to return to the home screen.
+
+
+Figure 3: Wall Collision and Restart Popup
+If the player’s mouse touches a wall, a friendly (yet firm) popup message appears saying: “You hit a wall! Click restart to try again.”
+The game pauses until the player clicks the Restart button, which sends the pointer back to the start. This enforces discipline in navigation and adds a fun penalty mechanic to the gameplay.
 
 # Diagrams
 ![Workflow](Add your workflow/architecture diagram here)
@@ -83,13 +100,12 @@ For Hardware:
 [Add your demo video link here]
 *Explain what the video demonstrates*
 
-# Additional Demos
-[Add any extra demo materials/links]
+
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Agna Jo Augustin :Developing and Testing
+- Aleena Antony: Developing and Testing
+
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
